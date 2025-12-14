@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Omar Stereos</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img class="brand__logo" src="assets/logo.png" alt="Omar Stereos" />
+      <div class="brand__text">
+        <h1>Omar Stereos</h1>
+        <p>Performance Car Audio & Electronics</p>
+      </div>
+    </div>
+
+    <nav class="tabs">
+      <button class="tab is-active" data-tab="citas" type="button">Citas</button>
+      <button class="tab" data-tab="clientes" type="button">Clientes</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- PANEL: CITAS -->
+    <section class="panel is-active" id="panel-citas">
+      <div class="grid">
+        <section class="card">
+          <h2>Nueva cita</h2>
+          <form id="formCita" class="form">
+            <div class="form__row">
+              <label>Cliente</label>
+              <input name="cliente" type="text" placeholder="Nombre completo" required />
+            </div>
+
+            <div class="form__row">
+              <label>Teléfono</label>
+              <input name="telefono" type="tel" placeholder="Ej. 6621345678" required />
+            </div>
+
+            <div class="form__row">
+              <label>Carro y modelo</label>
+              <input name="vehiculo" type="text" placeholder="Ej. Honda Civic" required />
+            </div>
+
+            <div class="form__row form__row--3">
+              <div>
+                <label>Año</label>
+                <input name="anio" type="number" min="1970" max="2100" placeholder="Ej. 2018" required />
+              </div>
+              <div>
+                <label>Color</label>
+                <input name="color" type="text" placeholder="Ej. Negro" />
+              </div>
+              <div>
+                <label>Fecha de cita</label>
+                <input name="fechaCita" type="date" required />
+              </div>
+            </div>
+
+            <div class="form__row">
+              <label>Servicio</label>
+              <textarea name="servicio" rows="3" placeholder="¿Qué se instalará o cambiará?" required></textarea>
+            </div>
+
+            <div class="form__row">
+              <label>Fecha de mantenimiento (opcional)</label>
+              <input name="mantenimiento" type="date" />
+            </div>
+
+            <div class="form__row">
+              <label>Notas (opcional)</label>
+              <input name="notas" type="text" placeholder="Detalles importantes" />
+            </div>
+
+            <div class="actions">
+              <button type="submit" class="btn btn--primary" id="btnGuardar">Guardar cita</button>
+              <button type="button" id="btnLimpiar" class="btn btn--ghost">Limpiar</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card">
+          <div class="card__header">
+            <h2>Citas registradas</h2>
+            <input id="searchCitas" class="search" type="search" placeholder="Buscar por cliente o vehículo..." />
+          </div>
+
+          <!-- Filtros por fecha -->
+          <div class="filters">
+            <button id="filterAll" type="button" class="btn btn--ghost btn--mini">Todas</button>
+            <button id="filterToday" type="button" class="btn btn--ghost btn--mini">Hoy</button>
+            <button id="filterThisWeek" type="button" class="btn btn--ghost btn--mini">Esta semana</button>
+            <button id="filterThisMonth" type="button" class="btn btn--ghost btn--mini">Este mes</button>
+          </div>
+
+          <div id="listaCitas" class="list"></div>
+
+          <!-- Contadores -->
+          <div id="counters">
+            <p>Total de citas: <span id="totalCount">0</span></p>
+            <p>Citas de hoy: <span id="todayCount">0</span></p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- PANEL: CLIENTES (placeholder por ahora) -->
+    <section class="panel" id="panel-clientes">
+      <div class="card">
+        <h2>Clientes</h2>
+        <p>Este módulo se activará después. Por ahora, la gestión se hace desde Citas.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Omar Stereos · Sistema local (sin servidor) · v0.2</small>
+  </footer>
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
